@@ -7,12 +7,13 @@ export const ImageGenerator = {
      * Draws the list to a canvas
      * @param {Array} medicationList 
      * @param {HTMLCanvasElement} canvas 
+     * @param {string} userName
      */
-    generate(medicationList, canvas) {
+    generate(medicationList, canvas, userName) {
         const ctx = canvas.getContext('2d');
         const width = 800;
         const padding = 40;
-        const headerHeight = 100;
+        const headerHeight = 130;
         const itemHeight = 60;
         const footerHeight = 40;
 
@@ -32,7 +33,12 @@ export const ImageGenerator = {
         ctx.font = 'bold 32px Inter, sans-serif';
         ctx.fillStyle = '#FFFFFF';
         ctx.textAlign = 'center';
-        ctx.fillText('Meus Medicamentos', width / 2, 60);
+        ctx.fillText('Meus Medicamentos', width / 2, 50);
+
+        // User Name
+        ctx.font = '20px Inter, sans-serif';
+        ctx.fillStyle = '#E0E7FF';
+        ctx.fillText(`Paciente: ${userName || 'Não informado'}`, width / 2, 90);
 
         // List
         ctx.textAlign = 'left';

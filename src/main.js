@@ -2,9 +2,11 @@ import { ImageGenerator } from './imageGenerator.js';
 import '../style.css';
 
 // State Management
+// State Management
 const state = {
     step: 'welcome',
     medicationList: [], // { name, dosage, id }
+    userName: '',
     userInputName: '',
     userInputDosage: '',
     isUpdateMode: false
@@ -13,6 +15,7 @@ const state = {
 // DOM Elements
 const views = {
     welcome: document.getElementById('step-welcome'),
+    userName: document.getElementById('step-user-name'),
     input: document.getElementById('step-input'),
     clarification: document.getElementById('step-clarification'),
     dosage: document.getElementById('step-dosage'),
@@ -31,6 +34,21 @@ const showStep = (stepName) => {
 
 // Step 1: Welcome
 document.getElementById('btn-start').addEventListener('click', () => {
+    showStep('userName');
+});
+
+// Step 1.5: User Name
+const userNameInput = document.getElementById('user-name-input');
+const userNameError = document.getElementById('user-name-error');
+
+document.getElementById('btn-confirm-user-name').addEventListener('click', () => {
+    const name = userNameInput.value.trim();
+    if (!name) {
+        userNameError.classList.remove('hidden');
+        return;
+    }
+    userNameError.classList.add('hidden');
+    state.userName = name;
     showStep('input');
 });
 
@@ -112,7 +130,7 @@ document.getElementById('btn-finish').addEventListener('click', () => {
 const canvasEl = document.getElementById('result-canvas');
 
 const renderResult = () => {
-    ImageGenerator.generate(state.medicationList, canvasEl);
+    ImageGenerator.generate(state.medicationList, canvasEl, state.userName);
 };
 
 document.getElementById('btn-download').addEventListener('click', () => {
