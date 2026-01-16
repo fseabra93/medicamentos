@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Minha Lista de Medicamentos</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- Header -->
+    <header class="app-header">
+      <h1>Minha Lista de Medicamentos</h1>
+    </header>
+
+    <!-- Main Content Area -->
+    <main id="main-content">
+
+      <!-- Step 1: Welcome -->
+      <section id="step-welcome" class="step-container active">
+        <div class="card">
+          <h2>Bem-vindo</h2>
+          <p>Vamos criar uma lista organizada dos medicamentos que você usa diariamente. Isso facilitará a apresentação
+            para profissionais de saúde.</p>
+          <button id="btn-start" class="btn btn-primary">Começar</button>
+        </div>
+      </section>
+
+      <!-- Step 2: Input Medication -->
+      <section id="step-input" class="step-container hidden">
+        <div class="card">
+          <h2>Nome do Medicamento</h2>
+          <p>Digite o nome do medicamento:</p>
+          <div class="input-group">
+            <input type="text" id="medication-name" placeholder="Ex: Dipirona" autocomplete="off">
+          </div>
+          <p class="error-msg hidden" id="input-error">Por favor, digite um nome.</p>
+          <button id="btn-next-input" class="btn btn-primary">Continuar</button>
+        </div>
+      </section>
+
+      <!-- Step 3: Confirmation -->
+      <section id="step-clarification" class="step-container hidden">
+        <div class="card">
+          <h2>Confirmação</h2>
+          <p>O nome do medicamento está correto?</p>
+
+          <div class="confirmation-box">
+            <h3 id="confirm-name-display">Nome do Medicamento</h3>
+          </div>
+
+          <div class="vertical-actions">
+            <button id="btn-confirm-name" class="btn btn-primary">Sim, este é o nome correto</button>
+            <button id="btn-retry-name" class="btn btn-outline">Não, quero corrigir</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Step 4: Dosage -->
+      <section id="step-dosage" class="step-container hidden">
+        <div class="card">
+          <h2>Dose do Medicamento</h2>
+          <p>Qual a dose deste medicamento?</p>
+
+          <div class="input-group">
+            <input type="text" id="dosage-input" placeholder="Ex: 500mg ou 1 comprimido" autocomplete="off">
+          </div>
+          <p class="error-msg hidden" id="dosage-error">Por favor, digite a dose.</p>
+
+          <button id="btn-confirm-dosage" class="btn btn-primary">Confirmar Dose</button>
+        </div>
+      </section>
+
+      <!-- Step 5: Iteration (Add More?) -->
+      <section id="step-iteration" class="step-container hidden">
+        <div class="card">
+          <h2>Medicamento Adicionado!</h2>
+          <p>Você deseja adicionar mais um medicamento?</p>
+          <div class="action-buttons">
+            <button id="btn-add-more" class="btn btn-secondary">Sim, adicionar outro</button>
+            <button id="btn-finish" class="btn btn-primary">Não, finalizar lista</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Step 6: Final Result -->
+      <section id="step-result" class="step-container hidden">
+        <div class="card full-width">
+          <h2>Sua Lista Pronta</h2>
+          <div class="canvas-wrapper">
+            <canvas id="result-canvas"></canvas>
+          </div>
+          <div class="action-buttons">
+            <button id="btn-download" class="btn btn-primary">Baixar Imagem</button>
+            <button id="btn-share" class="btn btn-secondary">Compartilhar</button>
+          </div>
+          <div class="secondary-actions">
+            <button id="btn-update-list" class="btn btn-text">Atualizar Lista</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Step 7: Update Mode -->
+      <section id="step-update" class="step-container hidden">
+        <div class="card">
+          <h2>Atualizar Lista</h2>
+          <p>O que você deseja fazer?</p>
+          <div class="vertical-actions">
+            <button id="btn-mode-add" class="btn btn-outline">Adicionar Medicamento</button>
+            <button id="btn-mode-remove" class="btn btn-outline">Remover Medicamento</button>
+            <button id="btn-mode-cancel" class="btn btn-text">Cancelar</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Step 8: Remove List -->
+      <section id="step-remove" class="step-container hidden">
+        <div class="card">
+          <h2>Remover Medicamento</h2>
+          <p>Selecione para remover:</p>
+          <div id="remove-list" class="item-list">
+            <!-- Items to remove -->
+          </div>
+          <button id="btn-back-result" class="btn btn-secondary">Voltar</button>
+        </div>
+      </section>
+
+    </main>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

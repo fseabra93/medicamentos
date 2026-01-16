@@ -1,0 +1,18 @@
+Quero que você construa um appque tem a função de construir uma imagem com o conteúdo de uma lista de nomes de medicamentos informados pelo usuário para facilitar a apresentação para profissionais de saúde que precisarem dessa informação.
+
+O app deve iniciar informando ao usuário que vai construir uma lista de medicamentos que o usuário faz uso diariamente.
+Logo depois o app deve pedir para o usuário digitar o nome do primeiro medicamento. Depois que o usuário digitar cada medicamento o app deve verificar na internet se o nome foi digitado corretamente (escolha um site especializado em medicamento em uso no Brasil). Caso o app considere que o nome digitado não está correto, o app deve perguntar ao usuário se o nome é mesmo o nome digitado ou se é o nome sugerido pelo app após a busca na internet. Para essa pergunta o app deve fornecer também o nome do princípio ativo do medicamento para facilitar ao usuário identificar se o medicamento informado está correto. Depois que for decidido pelo usuário qual o nome correto, o app deve perguntar ao usuário qual a dose do medicamento em mg ou em ml, de acordo com o que o app dencontrou como opções daquele medicamento na busca na internet no site especializado. O app deve fornecer ao usuário uma lista para ele escolher qual a dose daquele medicamento que ele faz uso. Depois que o usuário escolher a dose, esse medicamento foi setado. Nesse momento então, o app deve perguntar se deseja digitar mais um ou não com uma opção de marcar sim ou não.
+
+Caso o usuário diga sim, todo o processo se repete, setando quantos medicamentos forem inseridos pelo usuário, até que o usuário diga não.
+
+Quando o usuário disser não, uma imagem deve ser criada, em estilo clean, com os nomes dos medicamentos na ordem digitada como no exemplo abaixo:
+- Medicamento_1 (xx mg)
+- Medicamento_2 (xx mg)
+- Medicamento_3 (xx mg)
+
+O app deve armazenar essa imagem para carregamento fácil pelo usuário e deve apresentar um botão para facilitar download da imagem ou compartilhamento da imagem
+
+O app deve apresentar um botão de fácil acesso para atualização da lista de medicamentos. Quando o botão de atualizar a lista de medicamentos for clicado, o app deve solicitar confirmação, e ao confirmar que deseja atualizar, o app deve Perguntar se é Remoção, Adição ou Modificação de medicamentos. Em caso de remoção ou modificação, o app deve apresentar a lista dos medicamentos para o usuário simplesmente marcar qual medicamento deve ser removido ou alterado. Em caso de remoção, apenas remover o medicamento e atualizar a imagem. EM caso de modificação ou adição, solicitar nova digitação seguindo os protocolos já descritos para digitação e inserção de novo medicamento, e atualizar a imagem.
+
+
+
