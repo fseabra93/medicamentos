@@ -22,36 +22,39 @@ export const ImageGenerator = {
         canvas.width = width;
         canvas.height = totalHeight;
 
-        // White Background
+        // Pastel Background
         ctx.fillStyle = '#FFFFFF';
         ctx.fillRect(0, 0, width, totalHeight);
 
-        // Header
-        ctx.fillStyle = '#2563EB';
+        // Header (Pastel Blue)
+        ctx.fillStyle = '#93C5FD';
         ctx.fillRect(0, 0, width, headerHeight);
 
-        ctx.font = 'bold 32px Inter, sans-serif';
+        // Title
+        ctx.font = 'bold 40px Quicksand, sans-serif'; // Larger, rounded font
         ctx.fillStyle = '#FFFFFF';
         ctx.textAlign = 'center';
-        ctx.fillText('Meus Medicamentos', width / 2, 50);
+        ctx.fillText('MedsList', width / 2, 55);
 
         // User Name
-        ctx.font = '20px Inter, sans-serif';
-        ctx.fillStyle = '#E0E7FF';
-        ctx.fillText(`Paciente: ${userName || 'Não informado'}`, width / 2, 90);
+        ctx.font = '600 24px Quicksand, sans-serif';
+        ctx.fillStyle = '#FFFFFF'; // White text on blue
+        ctx.fillText(`Paciente: ${userName || 'Não informado'}`, width / 2, 95);
 
         // List
         ctx.textAlign = 'left';
-        let currentY = headerHeight + 50;
+        let currentY = headerHeight + 60;
 
         medicationList.forEach((item, index) => {
+            // Bullet point (Soft Pink heart or circle)
             ctx.beginPath();
-            ctx.arc(padding + 20, currentY - 10, 6, 0, 2 * Math.PI);
-            ctx.fillStyle = '#2563EB';
+            ctx.arc(padding + 20, currentY - 10, 8, 0, 2 * Math.PI);
+            ctx.fillStyle = '#F9A8D4'; // Pastel Pink
             ctx.fill();
 
-            ctx.font = 'bold 24px Inter, sans-serif';
-            ctx.fillStyle = '#1E293B';
+            // Medication Name
+            ctx.font = '700 28px Quicksand, sans-serif';
+            ctx.fillStyle = '#475569'; // Slate 600
             ctx.fillText(item.name, padding + 50, currentY);
 
             const nameWidth = ctx.measureText(item.name).width;
